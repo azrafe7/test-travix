@@ -37,7 +37,7 @@ class Tests {
   #end
   }
   
-  public function testException():Void {
+  public function testExceptionPass():Void {
     Assert.isTrue(1. == 1);
     Assert.raises(function ():Void {
       Lib.thisThrows();
