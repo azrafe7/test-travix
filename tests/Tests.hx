@@ -58,8 +58,8 @@ class Tests {
     Assert.isTrue(Lib.working());
   }
   
-  public function testFail():Void {
-    Assert.pass();
-    Assert.fail();
-  }
+  //public function testFail():Void {
+    //Assert.pass();
+    //Assert.fail();
+  //}
 }
