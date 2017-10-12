@@ -5,11 +5,11 @@ language: haxe
 
 os:
   - linux
-  - osx
+#  - osx
   
 haxe:
   - "3.4.0"
-  - development
+#  - development
   
 matrix:
   allow_failures:
