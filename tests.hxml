@@ -1,3 +1,4 @@
 -cp tests
+-cp src
 -main Tests
 -dce full
