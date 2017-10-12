@@ -23,19 +23,28 @@ class Tests {
   #elseif (sys || nodejs)
     Sys.println(v);
   #else
-    throw "Not supported yet";
+    haxe.Log.trace(v);
   #end
   }
-    
+  
+  static public function exit(code:Int) {
+  #if travix
+    travix.Logger.exit(code);
+  #elseif sys
+    Sys.exit(code);
+  #else
+    println("exit(" + code + ")`. Not supported on this target.");
+  #end
+  }
+  
   static function main() {
     var runner = new Runner();
     runner.addCase(new Tests());
     var report = Report.create(runner);
     runner.run();
     
-  #if travix
-    travix.Logger.exit(0); // make sure we exit properly, which is necessary on some targets, e.g. flash & (phantom)js
-  #end
+    // make sure we exit properly, which is necessary on some targets, e.g. flash & (phantom)js
+    exit(0);
   }
   
   public function testExceptionPass():Void {
