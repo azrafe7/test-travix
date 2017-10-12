@@ -7,7 +7,8 @@ class Lib {
     throw("Exception");
   }
   
-  static public function working():Void {
+  static public function working():Bool {
     trace("working");
+    return true;
   }
 }

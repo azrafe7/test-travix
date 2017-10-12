@@ -1,10 +1,17 @@
 package ;
 
+import utest.Runner;
+import utest.ui.Report;
+import utest.Assert;
+
 import lib.Lib;
 
 
+@:keep
 class Tests {
 
+  public function new():Void { }
+  
   // https://github.com/haxetink/tink_testrunner/blob/d762f78/src/tink/testrunner/Reporter.hx#L168-L177
   inline static public function println(v:String) {
   #if travix
@@ -19,11 +26,24 @@ class Tests {
   }
     
   static function main() {
-    println('it works');
+    var runner = new Runner();
+    runner.addCase(new Tests());
+    Report.create(runner);
+    runner.run();
     
   #if travix
     travix.Logger.exit(0); // make sure we exit properly, which is necessary on some targets, e.g. flash & (phantom)js
   #end
   }
   
+  public function testException():Void {
+    Assert.isTrue(1. == 1);
+    Assert.raises(function ():Void {
+      Lib.thisThrows();
+    });
+  }
+  
+  public function testWorking():Void {
+    Assert.isTrue(Lib.working());
+  }
 }
