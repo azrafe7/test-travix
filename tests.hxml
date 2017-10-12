@@ -3,3 +3,4 @@
 -main Tests
 -lib utest
 -dce full
+-debug
