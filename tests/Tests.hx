@@ -46,4 +46,9 @@ class Tests {
   public function testWorking():Void {
     Assert.isTrue(Lib.working());
   }
+  
+  public function testFail():Void {
+    Assert.pass();
+    Assert.fail();
+  }
 }
