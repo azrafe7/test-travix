@@ -3,6 +3,7 @@ package ;
 import utest.Runner;
 import utest.ui.Report;
 import utest.Assert;
+import utest.ui.text.PlainTextReport;
 import utest.ui.text.PrintReport;
 
 import lib.Lib;
@@ -29,7 +30,7 @@ class Tests {
   static function main() {
     var runner = new Runner();
     runner.addCase(new Tests());
-    var report = new PrintReport(runner);
+    var report = Report.create(runner);
     runner.run();
     
   #if travix
